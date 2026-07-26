@@ -1,0 +1,163 @@
+/* =============================================
+   設計稿基準尺寸：3072 × 1987 px
+   ============================================= */
+:root {
+  --canvas-w: 3072;
+  --canvas-h: 1987;
+  /* 左右留白底色，取自背景牆面相近色 */
+  --page-bg: #ede4dd;
+}
+
+/* =============================================
+   全域重置
+   ============================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--page-bg);
+}
+
+/* =============================================
+   視窗容器：畫布置中，寬螢幕時左右留白
+   ============================================= */
+.viewport {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--page-bg);
+}
+
+/* 固定比例畫布，等比縮放填滿視窗（不裁切） */
+.canvas {
+  position: relative;
+  aspect-ratio: 3072 / 1987;
+  width: min(100vw, calc(100vh * 3072 / 1987));
+  height: min(100vh, calc(100vw * 1987 / 3072));
+}
+
+/* =============================================
+   圖層共用樣式
+   ============================================= */
+.layer {
+  position: absolute;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* 背景圖：填滿整個畫布 */
+.layer-bg {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* partA 晾衣繩：位於按鈕下方 */
+.layer-part-a {
+  left: 19.336%;
+  top: 26.673%;
+  width: 69.954%;
+  height: auto;
+  z-index: 2;
+}
+
+/* =============================================
+   導覽按鈕
+   ============================================= */
+.nav-buttons {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+/* 按鈕基礎樣式：保留 PNG 透明區域 */
+.btn {
+  position: absolute;
+  display: block;
+  width: 14.68%;
+  /* 451 ÷ 3072 ≈ 14.68% */
+  line-height: 0;
+  text-decoration: none;
+  cursor: pointer;
+  /* 以夾子上方為晃動支點，模擬吊掛效果 */
+  transform-origin: 50% 4%;
+}
+
+.btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 滑鼠懸停：自然微晃動，0.5 秒 */
+.btn:hover {
+  animation: btn-wiggle 0.5s ease-in-out;
+}
+
+@keyframes btn-wiggle {
+  
+ 
+  60% {
+    transform: rotate(-0.5deg) translate(-1px, 0);
+  }
+
+  20% {
+    transform: rotate(-1.5deg) translate(-1px, 1px);
+  }
+
+  60% {
+    transform: rotate(-0.5deg) translate(-1px, 0);
+  }
+
+  0% {
+    transform: rotate(1deg) translate(1px, 1px);
+  }
+}
+
+/* 鍵盤聚焦外框 */
+.btn:focus-visible {
+  outline: 2px solid rgba(120, 90, 70, 0.55);
+  outline-offset: 3px;
+}
+
+/* =============================================
+   各按鈕位置（依 design.png 設計稿座標換算）
+   ============================================= */
+
+.btn-character {
+  left: 21.745%;
+  top: 29.19%;
+}
+
+.btn-discord {
+  left: 34.115%;
+  top: 31.404%;
+}
+
+.btn-stream {
+  left: 46.289%;
+  top: 32.713%;
+}
+
+.btn-shop {
+  left: 59.049%;
+  top: 34.122%;
+}
+
+.btn-fanbox {
+  left: 71.615%;
+  top: 30.7%;
+}

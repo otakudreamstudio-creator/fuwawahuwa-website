@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fuwawa Huwa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 全螢幕容器：左右留白，底色與背景圖相近 -->
+  <main class="viewport">
+    <!-- 固定比例畫布（3072 × 1987），背景與按鈕一起等比縮放 -->
+    <div class="canvas">
+      <!-- 底層：首頁背景 -->
+      <img
+        class="layer layer-bg"
+        src="images/bg-home.png"
+        alt="Fuwawa Huwa 首頁背景"
+        width="3072"
+        height="1987"
+      >
+
+      <!-- 中層：晾衣繩裝飾（在按鈕下方） -->
+      <img
+        class="layer layer-part-a"
+        src="images/partA.png"
+        alt=""
+        aria-hidden="true"
+        width="2149"
+        height="268"
+      >
+
+      <!-- 上層：五個導覽按鈕 -->
+      <nav class="nav-buttons" aria-label="主要導覽">
+        <a href="#" class="btn btn-character">
+          <img src="images/btn_Character.png" alt="Character 角色介紹">
+        </a>
+        <a href="https://discord.gg/zadrB8VFN8" class="btn btn-discord">
+          <img src="images/btn_Discord.png" alt="Discord 社群伺服器">
+        </a>
+        <a href="https://www.twitch.tv/fuwawahuwa" class="btn btn-stream">
+          <img src="images/btn_Stream.png" alt="Stream 實況 / 影音">
+        </a>
+        <a href="https://mall.iopenmall.tw/110269/" class="btn btn-shop">
+          <img src="images/btn_Shop.png" alt="Online Shop 網路商店">
+        </a>
+        <a href="https://fuwahuwa.fanbox.cc/" class="btn btn-fanbox">
+          <img src="images/btn_Fanbox.png" alt="Fanbox 創作筆記">
+        </a>
+      </nav>
+    </div>
+  </main>
+<script src="js/main.js"></script>
+</body>
+</html>
