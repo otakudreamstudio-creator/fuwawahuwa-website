@@ -1,0 +1,62 @@
+:root {
+  --page-bg: #ede4dd;
+  --ink: #786a65;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+}
+
+.back-link {
+  position: fixed;
+  top: clamp(0.75rem, 2vw, 1.5rem);
+  left: clamp(0.75rem, 2vw, 1.5rem);
+  z-index: 2;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid rgba(120, 106, 101, 0.2);
+  border-radius: 50%;
+  background: rgba(255, 253, 251, 0.88);
+  box-shadow: 0 0.45rem 1.25rem rgba(91, 70, 60, 0.12);
+  color: var(--ink);
+  font: 1.25rem/1 sans-serif;
+  text-decoration: none;
+  backdrop-filter: blur(0.5rem);
+}
+
+.gallery {
+  width: min(100%, 128rem);
+  margin: 0 auto;
+  padding: clamp(1rem, 2vw, 2rem);
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 clamp(1rem, 2vw, 2rem);
+  border-radius: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+
+.gallery img:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .gallery {
+    padding: 0.5rem;
+  }
+
+  .gallery img {
+    border-radius: 0.65rem;
+  }
+}
