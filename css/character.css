@@ -1,6 +1,9 @@
 :root {
   --page-bg: #ede4dd;
   --ink: #786a65;
+  /* 畫廊圖片基準尺寸：6169 × 3473 px（新增圖片請沿用此比例） */
+  --gallery-img-w: 6169;
+  --gallery-img-h: 3473;
 }
 
 *,
@@ -42,13 +45,22 @@ body {
 .gallery img {
   display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: var(--gallery-img-w) / var(--gallery-img-h);
+  object-fit: contain;
+  object-position: center;
+  background: var(--page-bg);
   margin: 0 0 clamp(1rem, 2vw, 2rem);
   border-radius: clamp(0.75rem, 1.5vw, 1.5rem);
+  box-shadow: 0 0.4rem 1.2rem rgba(91, 70, 60, 0.1);
 }
 
 .gallery img:last-child {
   margin-bottom: 0;
+}
+
+.gallery img.guidelines {
+  aspect-ratio: auto;
+  height: auto;
 }
 
 @media (max-width: 640px) {
